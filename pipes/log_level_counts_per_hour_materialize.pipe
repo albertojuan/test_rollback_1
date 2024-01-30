@@ -1,0 +1,17 @@
+NODE mv
+SQL >
+
+    SELECT
+        toStartOfHour(event_ts) AS hour,
+        log_level,
+        countState() AS total
+    FROM logs
+    GROUP BY
+        hour,
+        log_level
+    ORDER BY hour ASC
+
+TYPE materialized
+DATASOURCE log_level_counts_per_hour
+
+

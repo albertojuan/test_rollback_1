@@ -1,0 +1,16 @@
+NODE mv
+SQL >
+
+    SELECT
+        toStartOfMinute(event_ts) AS minute,
+        ip_address,
+        countState() AS total
+    FROM logs
+    GROUP BY
+        ip_address,
+        minute
+
+TYPE materialized
+DATASOURCE calls_by_ip_per_minute
+
+
