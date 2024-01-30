@@ -1,0 +1,6 @@
+NODE node1
+SQL >
+
+    SELECT * FROM errors_per_function_per_hour
+
+
